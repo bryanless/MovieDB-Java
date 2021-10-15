@@ -1,0 +1,13 @@
+<resources>
+    <string name="app_name">MovieDB</string>
+    <string name="button_hit">Hit API</string>
+    <string name="text_null">-</string>
+    <string name="text_overview">Overview</string>
+    <string name="text_releaseDate">Release Date</string>
+    <string name="text_title">Title</string>
+    <string name="text_movieDetail">Movie Detail</string>
+    <string name="text_rating">0.0</string>
+    <string name="text_synopsis">Synopsis</string>
+    <string name="text_movieCaption">%1$s \u2022 %2$sh %3$sm</string>
+    <string name="text_nowPlaying">Now Playing</string>
+</resources>
