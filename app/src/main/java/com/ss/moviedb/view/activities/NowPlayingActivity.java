@@ -1,11 +1,9 @@
-package com.ss.moviedb.view;
+package com.ss.moviedb.view.activities;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProvider;
-import androidx.recyclerview.widget.GridLayoutManager;
-import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import android.os.Bundle;
@@ -29,6 +27,8 @@ public class NowPlayingActivity extends AppCompatActivity {
 
     private NowPlayingAdapter adapter;
     private MovieViewModel viewModel;
+
+    private int page;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -75,8 +75,10 @@ public class NowPlayingActivity extends AppCompatActivity {
 //        getSupportActionBar().setHomeButtonEnabled(true);
 //        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
+        page = 1;
+
         viewModel = new ViewModelProvider(NowPlayingActivity.this).get(MovieViewModel.class);
-        viewModel.getNowPlaying();
+        viewModel.getNowPlaying(String.valueOf(page));
         viewModel.getResultGetNowPlaying().observe(NowPlayingActivity.this, showResultNowPlaying);
     }
 }

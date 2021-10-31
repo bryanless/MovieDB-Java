@@ -1,4 +1,4 @@
-package com.ss.moviedb.view;
+package com.ss.moviedb.view.activities;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.lifecycle.Observer;
@@ -16,8 +16,6 @@ import com.ss.moviedb.R;
 import com.ss.moviedb.helper.Const;
 import com.ss.moviedb.model.Movies;
 import com.ss.moviedb.viewmodel.MovieViewModel;
-
-import retrofit2.Call;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -57,7 +55,7 @@ public class MainActivity extends AppCompatActivity {
                 String posterPath = movies.getPoster_path().toString();
                 main_textView_title.setText(title);
                 main_textView_title.setVisibility(View.VISIBLE);
-                Glide.with(MainActivity.this).load(Const.IMG_URL + posterPath).into(main_imageView_poster);
+                Glide.with(MainActivity.this).load(Const.IMG_URL_500 + posterPath).into(main_imageView_poster);
             }
         }
     };

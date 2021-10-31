@@ -1,4 +1,4 @@
-package com.ss.moviedb.view;
+package com.ss.moviedb.view.activities;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
@@ -29,7 +29,7 @@ import java.util.ArrayList;
 public class MovieDetailActivity extends AppCompatActivity {
 
     private Toolbar movieDetail_toolbar;
-    private ImageView movieDetail_textView_poster;
+    private ImageView movieDetail_imageView_poster;
     private TextView movieDetail_textView_caption, movieDetail_textView_title, movieDetail_textView_rating, movieDetail_textView_synopsis;
     private RecyclerView movieDetail_recyclerView_genre;
 
@@ -67,7 +67,7 @@ public class MovieDetailActivity extends AppCompatActivity {
                 movieDetail_textView_title.setText(title);
                 movieDetail_textView_rating.setText(rating);
                 movieDetail_textView_synopsis.setText(synopsis);
-                Glide.with(MovieDetailActivity.this).load(Const.IMG_URL + movies.getPoster_path()).into(movieDetail_textView_poster);
+                Glide.with(MovieDetailActivity.this).load(Const.IMG_URL_500 + movies.getPoster_path()).into(movieDetail_imageView_poster);
 
                 MovieDetailGenreAdapter adapter = new MovieDetailGenreAdapter(MovieDetailActivity.this);
                 adapter.setMovieDetailGenreList(genreList);
@@ -87,7 +87,7 @@ public class MovieDetailActivity extends AppCompatActivity {
         movieId = intent.getStringExtra("movieId");
 
         movieDetail_toolbar = findViewById(R.id.movieDetail_toolbar);
-        movieDetail_textView_poster = findViewById(R.id.movieDetail_textView_poster);
+        movieDetail_imageView_poster = findViewById(R.id.movieDetail_imageView_poster);
         movieDetail_textView_caption = findViewById(R.id.movieDetail_textView_caption);
         movieDetail_textView_title = findViewById(R.id.movieDetail_textView_title);
         movieDetail_textView_rating = findViewById(R.id.movieDetail_textView_rating);
