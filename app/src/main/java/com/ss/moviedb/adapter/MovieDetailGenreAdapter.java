@@ -11,7 +11,6 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.ss.moviedb.R;
 import com.ss.moviedb.model.Movies;
-import com.ss.moviedb.view.MovieDetailActivity;
 
 import java.util.ArrayList;
 
