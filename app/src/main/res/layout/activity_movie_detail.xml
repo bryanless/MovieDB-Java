@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".view.MovieDetailActivity">
+    tools:context=".view.activities.MovieDetailActivity">
 
     <androidx.appcompat.widget.Toolbar
         android:id="@+id/movieDetail_toolbar"
@@ -49,7 +49,7 @@
                     android:layout_height="match_parent">
 
                     <ImageView
-                        android:id="@+id/movieDetail_textView_poster"
+                        android:id="@+id/movieDetail_imageView_poster"
                         android:layout_width="200dp"
                         android:layout_height="300dp"
                         android:adjustViewBounds="true"
@@ -92,7 +92,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="1dp"
-                android:text="@string/text_rating"
+                android:text="@string/text_movieRating"
                 android:textAppearance="@style/TextAppearance.MaterialComponents.Body2"
                 app:layout_constraintBottom_toBottomOf="@+id/imageView2"
                 app:layout_constraintStart_toStartOf="@+id/movieDetail_textView_title"

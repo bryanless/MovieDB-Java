@@ -3,6 +3,8 @@
     package="com.ss.moviedb">
 
     <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
 
     <application
         android:allowBackup="true"
@@ -12,10 +14,7 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.MovieDB">
         <activity
-            android:name=".view.MovieDetailActivity"
-            android:exported="false" />
-        <activity
-            android:name=".view.NowPlayingActivity"
+            android:name=".view.activities.MainMenuActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -24,8 +23,14 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".view.MainActivity"
-            android:exported="true"></activity>
+            android:name=".view.activities.MovieDetailActivity"
+            android:exported="true" />
+        <activity
+            android:name=".view.activities.NowPlayingActivity"
+            android:exported="true" />
+        <activity
+            android:name=".view.activities.MainActivity"
+            android:exported="true" />
     </application>
 
 </manifest>

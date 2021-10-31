@@ -1,7 +1,9 @@
 package com.ss.moviedb.adapter;
 
 import android.content.Context;
-import android.content.Intent;
+import android.graphics.drawable.Drawable;
+import android.os.Bundle;
+import android.text.TextUtils;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -9,17 +11,21 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.cardview.widget.CardView;
+import androidx.navigation.Navigation;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.bumptech.glide.Glide;
+import com.bumptech.glide.load.DataSource;
+import com.bumptech.glide.load.engine.GlideException;
+import com.bumptech.glide.request.RequestListener;
+import com.bumptech.glide.request.target.Target;
 import com.ss.moviedb.R;
 import com.ss.moviedb.helper.Const;
 import com.ss.moviedb.model.NowPlaying;
-import com.ss.moviedb.view.MovieDetailActivity;
 
 import java.util.ArrayList;
-import java.util.List;
 
 public class NowPlayingAdapter extends RecyclerView.Adapter<NowPlayingAdapter.CardViewViewHolder> {
 
@@ -34,6 +40,10 @@ public class NowPlayingAdapter extends RecyclerView.Adapter<NowPlayingAdapter.Ca
         this.nowPlayingList = nowPlayingList;
     }
 
+    public void addNowPlayingList(ArrayList<NowPlaying.Results> results) {
+        nowPlayingList.addAll(results);
+    }
+
     public NowPlayingAdapter(Context context) {
         this.context = context;
     }
@@ -43,7 +53,7 @@ public class NowPlayingAdapter extends RecyclerView.Adapter<NowPlayingAdapter.Ca
     public CardViewViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         LayoutInflater layoutInflater = LayoutInflater.from(parent.getContext());
 //        View view = layoutInflater.inflate(R.layout.card_now_playing, parent, false);
-        View view = layoutInflater.inflate(R.layout.card_now_playing_2, parent, false);
+        View view = layoutInflater.inflate(R.layout.card_movie_poster, parent, false);
 
         return new CardViewViewHolder(view);
     }
@@ -52,42 +62,55 @@ public class NowPlayingAdapter extends RecyclerView.Adapter<NowPlayingAdapter.Ca
     public void onBindViewHolder(@NonNull CardViewViewHolder holder, int position) {
         final NowPlaying.Results results = getNowPlayingList().get(position);
 
+        holder.movie_textView_titlePlaceholder.setText(results.getTitle());
 //        holder.nowPlaying_textView_title.setText(results.getTitle());
 //        holder.nowPlaying_textView_overview.setText(results.getOverview());
 //        holder.nowPlaying_textView_releaseDate.setText(results.getRelease_date());
 //        Glide.with(context).load(Const.IMG_URL + results.getPoster_path()).into(holder.nowPlaying_imageView_poster);
-        Glide.with(context).load(Const.IMG_URL + results.getPoster_path()).into(holder.nowPlaying_imageView_poster_2);
+        Glide.with(context).load(Const.IMG_URL_500 + results.getPoster_path()).into(holder.movie_imageView_poster);
 
-        holder.nowPlaying_cardView_movie.setOnClickListener(new View.OnClickListener() {
+        if (!TextUtils.isEmpty(results.getPoster_path())) {
+            holder.movie_textView_titlePlaceholder.setVisibility(View.INVISIBLE);
+        } else {
+            holder.movie_textView_titlePlaceholder.setVisibility(View.VISIBLE);
+        }
+
+        holder.movie_cardView_poster.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(context, MovieDetailActivity.class);
-                intent.putExtra("movieId", String.valueOf(results.getId()));
-                context.startActivity(intent);
+                //Activity
+//                Intent intent = new Intent(context, MovieDetailActivity.class);
+//                intent.putExtra("movieId", String.valueOf(results.getId()));
+//                context.startActivity(intent);
+
+                //Fragment
+                Bundle bundle = new Bundle();
+                bundle.putString("movieId", String.valueOf(results.getId()));
+                Navigation.findNavController(view).navigate(R.id.action_nowPlayingFragment_to_movieDetailFragment, bundle);
             }
         });
     }
 
     @Override
     public int getItemCount() {
-        return getNowPlayingList().size();
+        return getNowPlayingList().size() - (getNowPlayingList().size() % 3);
     }
 
     public class CardViewViewHolder extends RecyclerView.ViewHolder {
 
-        CardView nowPlaying_cardView_movie;
-        ImageView nowPlaying_imageView_poster,nowPlaying_imageView_poster_2;
-        TextView nowPlaying_textView_title, nowPlaying_textView_overview, nowPlaying_textView_releaseDate;
+        CardView movie_cardView_poster;
+        ImageView nowPlaying_imageView_poster, movie_imageView_poster;
+        TextView nowPlaying_textView_title, nowPlaying_textView_overview, nowPlaying_textView_releaseDate, movie_textView_titlePlaceholder;
 
         public CardViewViewHolder(@NonNull View itemView) {
             super(itemView);
-
-            nowPlaying_cardView_movie = itemView.findViewById(R.id.nowPlaying_cardView_movie);
+            movie_cardView_poster = itemView.findViewById(R.id.movie_cardView_poster);
 //            nowPlaying_imageView_poster = itemView.findViewById(R.id.nowPlaying_imageView_poster);
 //            nowPlaying_textView_title = itemView.findViewById(R.id.nowPlaying_textView_title);
 //            nowPlaying_textView_overview = itemView.findViewById(R.id.nowPlaying_textView_overview);
 //            nowPlaying_textView_releaseDate = itemView.findViewById(R.id.nowPlaying_textView_releaseDate);
-            nowPlaying_imageView_poster_2 = itemView.findViewById(R.id.nowPlaying_imageView_poster_2);
+            movie_imageView_poster = itemView.findViewById(R.id.movie_imageView_poster);
+            movie_textView_titlePlaceholder = itemView.findViewById(R.id.movie_textView_titlePlaceholder);
         }
     }
 }
