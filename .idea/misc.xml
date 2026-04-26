@@ -12,6 +12,7 @@
         <entry key="..\:/Bryan/Document/Code/AndroidStudio/MobileAppDev/MovieDB/app/src/main/res/layout/card_now_playing_2.xml" value="0.36666666666666664" />
         <entry key="..\:/Bryan/Document/GitHub/MovieDB/app/src/main/res/drawable/bottom_navigation_state.xml" value="0.32622222222222225" />
         <entry key="..\:/Bryan/Document/GitHub/MovieDB/app/src/main/res/drawable/gradient_caption.xml" value="0.3310810810810811" />
+        <entry key="..\:/Bryan/Document/GitHub/MovieDB/app/src/main/res/drawable/ic_baseline_arrow_back_24.xml" value="0.1" />
         <entry key="..\:/Bryan/Document/GitHub/MovieDB/app/src/main/res/drawable/ic_baseline_arrow_drop_up_24.xml" value="0.3828125" />
         <entry key="..\:/Bryan/Document/GitHub/MovieDB/app/src/main/res/drawable/ic_baseline_home_24.xml" value="0.32622222222222225" />
         <entry key="..\:/Bryan/Document/GitHub/MovieDB/app/src/main/res/drawable/ic_baseline_movie_24.xml" value="0.3828125" />
@@ -20,7 +21,7 @@
         <entry key="..\:/Bryan/Document/GitHub/MovieDB/app/src/main/res/layout/activity_main_menu.xml" value="0.33" />
         <entry key="..\:/Bryan/Document/GitHub/MovieDB/app/src/main/res/layout/activity_movie_detail.xml" value="0.36666666666666664" />
         <entry key="..\:/Bryan/Document/GitHub/MovieDB/app/src/main/res/layout/activity_now_playing.xml" value="0.36666666666666664" />
-        <entry key="..\:/Bryan/Document/GitHub/MovieDB/app/src/main/res/layout/card_movie_backdrop_view_pager.xml" value="0.5" />
+        <entry key="..\:/Bryan/Document/GitHub/MovieDB/app/src/main/res/layout/card_movie_backdrop_view_pager.xml" value="0.25" />
         <entry key="..\:/Bryan/Document/GitHub/MovieDB/app/src/main/res/layout/card_movie_detail_genre.xml" value="0.3171171171171171" />
         <entry key="..\:/Bryan/Document/GitHub/MovieDB/app/src/main/res/layout/card_movie_poster.xml" value="0.67" />
         <entry key="..\:/Bryan/Document/GitHub/MovieDB/app/src/main/res/layout/card_movie_poster_view_pager.xml" value="0.17927927927927928" />
@@ -29,7 +30,7 @@
         <entry key="..\:/Bryan/Document/GitHub/MovieDB/app/src/main/res/layout/circular_progress_bar.xml" value="0.3171171171171171" />
         <entry key="..\:/Bryan/Document/GitHub/MovieDB/app/src/main/res/layout/fragment_genre.xml" value="0.30495495495495495" />
         <entry key="..\:/Bryan/Document/GitHub/MovieDB/app/src/main/res/layout/fragment_home.xml" value="0.36666666666666664" />
-        <entry key="..\:/Bryan/Document/GitHub/MovieDB/app/src/main/res/layout/fragment_movie_detail.xml" value="0.33" />
+        <entry key="..\:/Bryan/Document/GitHub/MovieDB/app/src/main/res/layout/fragment_movie_detail.xml" value="0.25" />
         <entry key="..\:/Bryan/Document/GitHub/MovieDB/app/src/main/res/layout/fragment_now_playing.xml" value="0.2803030303030303" />
         <entry key="..\:/Bryan/Document/GitHub/MovieDB/app/src/main/res/layout/fragment_upcoming.xml" value="0.2803030303030303" />
         <entry key="..\:/Bryan/Document/GitHub/MovieDB/app/src/main/res/layout/image_production_company.xml" value="0.3171171171171171" />
